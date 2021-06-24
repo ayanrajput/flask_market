@@ -1,19 +1,19 @@
-{% extends "base.html" %}
+ {% extends "base.html" %}
 
-{% block title %}
-Register Page
-{% endblock %}
-
-
-
-{% block content %}
-
-<body class=text-center>
+ {% block title %}
+ Register Page
+ {% endblock %}
 
 
-  <h1>Create Your Account</h1>
-  <div class="container">
-    <form method="POST" class="form-register" ">
+
+ {% block content %}
+
+ <body class=text-center>
+
+
+   <h1>Create Your Account</h1>
+   <div class="container">
+     <form method="POST" class="form-register" ">
       {{ form.hidden_tag() }}
     {{ form.username.label() }}
     {{ form.username(class="form-control",placeholder="User Name") }}

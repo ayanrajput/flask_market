@@ -1,0 +1,16 @@
+:root{--color-primary: #c822ff;
+--color-secondary: #0275b8;}
+body{
+  background: url("../images/Large-Triangles.svg");
+  background-repeat: repeat;
+  color: var(--color-primary);
+}
+table thead,form{
+  color: var(--color-secondary);
+}
+.flask-icon{
+  margin-left: 1rem;
+}
+h1{
+  text-align: center;
+}

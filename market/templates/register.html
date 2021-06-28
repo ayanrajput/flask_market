@@ -16,16 +16,16 @@
      <form method="POST" class="form-register" ">
       {{ form.hidden_tag() }}
     {{ form.username.label() }}
-    {{ form.username(class="form-control",placeholder="User Name") }}
+    {{ form.username(class="form-control border border-primary",placeholder="User Name") }}
 
     {{ form.email_address.label() }}
-    {{ form.email_address(class="form-control",placeholder="Email Address") }}
+    {{ form.email_address(class="form-control border border-primary",placeholder="Email Address") }}
 
     {{ form.password1.label() }}
-    {{ form.password1(class="form-control",placeholder="Password") }}
+    {{ form.password1(class="form-control border border-primary",placeholder="Password") }}
 
     {{ form.password2.label() }}
-    {{ form.password2(class="form-control",placeholder="Confirm Password") }}
+    {{ form.password2(class="form-control border border-primary",placeholder="Confirm Password") }}
     <br>
     {{form.submit(class="btn btn-lg btn-block btn-outline-primary")}}
   </form>

@@ -11,24 +11,32 @@
  <body class=text-center>
 
 
-   <h1>Create Your Account</h1>
+
    <div class="container">
      <form method="POST" class="form-register" ">
-      {{ form.hidden_tag() }}
-    {{ form.username.label() }}
-    {{ form.username(class="form-control border border-primary",placeholder="User Name") }}
+       <img class="" src=" https://img.icons8.com/nolan/150/flask.png" alt="">
+       <h1 class=" h1 mt-0 mb-0 font-weight-normal">
+         Create Account
+       </h1>
+       {{ form.hidden_tag() }}
+       {{ form.username.label() }}
+       {{ form.username(class="form-control border border-primary",placeholder="User Name") }}
 
-    {{ form.email_address.label() }}
-    {{ form.email_address(class="form-control border border-primary",placeholder="Email Address") }}
+       {{ form.email_address.label() }}
+       {{ form.email_address(class="form-control border border-primary",placeholder="Email Address") }}
 
-    {{ form.password1.label() }}
-    {{ form.password1(class="form-control border border-primary",placeholder="Password") }}
+       {{ form.password1.label() }}
+       {{ form.password1(class="form-control border border-primary",placeholder="Password") }}
 
-    {{ form.password2.label() }}
-    {{ form.password2(class="form-control border border-primary",placeholder="Confirm Password") }}
-    <br>
-    {{form.submit(class="btn btn-lg btn-block btn-outline-primary")}}
-  </form>
-</div>
-</body>
-{% endblock %}
+       {{ form.password2.label() }}
+       {{ form.password2(class="form-control border border-primary",placeholder="Confirm Password") }}
+       <br>
+       <div class="checkbox mb-3">
+         <h6>Already have an account?</h6>
+         <a class="btn btn-sm btn-primary" href="{{ url_for('login_page') }}">Login</a>
+       </div>
+       {{form.submit(class="btn btn-lg btn-block btn-outline-primary")}}
+     </form>
+   </div>
+ </body>
+ {% endblock %}

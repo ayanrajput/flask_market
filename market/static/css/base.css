@@ -13,4 +13,8 @@ table thead,form{
 }
 h1{
   text-align: center;
+  color: var(--color-primary);
+}
+.table{
+    max-height:300px !important;
 }

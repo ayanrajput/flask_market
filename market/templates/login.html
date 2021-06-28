@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+Login Page
+{% endblock %}
+
+
+
+{% block content %}
+
+<body class=text-center>
+  <div class="container">
+    <form method="POST" class="form-signin" style="color:white">
+      {{ form.hidden_tag() }}
+      <img class="" src="https://img.icons8.com/nolan/150/flask.png" alt="">
+      <h1 class=" h1 mt-0 mb-0 font-weight-normal">
+        Please Login
+      </h1>
+      <br>
+      {{ form.username.label() }}
+      {{ form.username(class="form-control", placeholder="User Name") }}
+
+      {{ form.password.label() }}
+      {{ form.password(class="form-control", placeholder="Password") }}
+
+      <br>
+
+
+      <div class="checkbox mb-3">
+        <h6>Do not have an account?</h6>
+        <a class="btn btn-sm btn-primary" href="{{ url_for('register_page') }}">Register</a>
+      </div>
+
+      {{ form.submit(class="btn btn-lg btn-block btn-outline-primary") }}
+
+    </form>
+  </div>
+
+
+</body>
+{% endblock %}

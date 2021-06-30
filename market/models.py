@@ -20,7 +20,7 @@ class User(db.Model,UserMixin):
             budget_string=str(self.budget)
             final_string=","+budget_string[-3:]
             count=0
-            for i in range(len(str(self.budget))-3,-1,-1):
+            for i in range(len(str(self.budget))-4,-1,-1):
 
                 if count==2:
                     count=0
@@ -56,5 +56,31 @@ class Item(db.Model):
     barcode=db.Column(db.String(length=12),nullable=False,unique=True)
     description=db.Column(db.String(length=1024),nullable=False,unique=True)
     owner=db.Column(db.Integer(),db.ForeignKey("user.id"))
+
+    @property
+    def prettier_price(self):
+        if len(str(self.price))>=4:
+            price_string=str(self.price)
+            final_string=","+price_string[-3:]
+            count=0
+            for i in range(len(str(self.price))-4,-1,-1):
+
+                if count==2:
+                    count=0
+                    final_string=","+final_string
+                    final_string=price_string[i]+final_string
+                else:
+                    final_string=price_string[i]+final_string
+
+                count+=1
+
+            return "₹"+final_string
+
+        else:
+            return f"₹{self.price}"
+
+
+
+
     def __repr__(self):
         return f"Item {self.name}"

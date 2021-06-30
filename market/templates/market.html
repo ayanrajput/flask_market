@@ -4,39 +4,52 @@ Flask Market
 {% endblock %}
 
 {% block content %}
+
+
 <h1><span class="flask-icon"><img src="../static/images/flask-icon.svg" alt="Flask"></span>Market</h1>
 
 
-<div class="container">
+<div class=" row">
 
+  <div class="col-8">
 
-  <table class="table table-responsive-md table-hover border border-primary table-dark">
-    <thead>
-      <tr>
-        <!-- Your Columns HERE -->
-        <th scope="col">ID</th>
-        <th scope="col">Name</th>
-        <th scope="col">Barcode</th>
-        <th scope="col">Price</th>
-        <th scope="col">Options</th>
-      </tr>
-    </thead>
-    <tbody>
+    <h3>Available items on the market</h3>
+    <p>Click on the items to start buying</p>
+    <br>
+    <table class="table table-responsive-md table-hover border border-primary table-dark">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Price</th>
+          <th scope="col">Barcode</th>
+          <th scope="col">Options</th>
+        </tr>
+      </thead>
+      <tbody>
 
-      <!-- Your rows inside the table HERE: -->
-      {% for item in items %}
-      <tr>
-        <td>{{item.id}}</td>
-        <td>{{item.name}}</td>
-        <td>{{item.barcode}}</td>
-        <td>₹{{item.price}}</td>
-        <td>
-          <button class="btn btn-outline btn-info">More Info</button>
-          <button class="btn btn-outline btn-success">Purchase This Item</button>
-        </td>
-      </tr>
-      {% endfor %}
-    </tbody>
-  </table>
+        {% for item in items %}
+        {% include "includes/items_modals.html" %}
+        <tr>
+          <td>{{item.id}}</td>
+          <td>{{item.name}}</td>
+          <td>{{item.prettier_price}}</td>
+          <td>{{item.barcode}}</td>
+
+          <td>
+            <button class="btn btn-outline btn-info" data-toggle="modal" data-target="#Modal-MoreInfo-{{ item.id }}">More Info</button>
+            <button class="btn btn-outline btn-success">Purchase This Item</button>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  <div class="col-4">
+    <h3>Owned Items</h3>
+    <p>Click on the sell item to sell it</p>
+    <br>
+  </div>
 </div>
+
 {% endblock %}

@@ -11,7 +11,7 @@ class User(db.Model,UserMixin):
     username=db.Column(db.String(length=30),nullable=False,unique=True)
     email_address=db.Column(db.String(length=50),nullable=False,unique=True)
     password_hash=db.Column(db.String(length=60),nullable=False)
-    budget=db.Column(db.Integer(),nullable=False,default=1000000)
+    budget=db.Column(db.Integer(),nullable=False,default=250000)
     items=db.relationship("Item",backref="owned_user",lazy=True)
 
     @property
@@ -48,6 +48,10 @@ class User(db.Model,UserMixin):
         return bcrypt.check_password_hash(self.password_hash,attempted_password)
 
 
+    def can_purchase(self,item_obj):
+        return self.budget>=item_obj.price
+
+
 
 class Item(db.Model):
     id=db.Column(db.Integer(),primary_key=True)
@@ -79,7 +83,10 @@ class Item(db.Model):
         else:
             return f"₹{self.price}"
 
-
+    def buy(self,user):
+        self.owner=user.id
+        user.budget-=self.price
+        db.session.commit()
 
 
     def __repr__(self):

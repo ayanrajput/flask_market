@@ -12,3 +12,8 @@ flask,
 flask_sqlalchemy,
 flask_bcrypt,
 flask_login,
+
+
+
+
+To start the website just open the run.py and website will run on the local host  http://127.0.0.1:5000/

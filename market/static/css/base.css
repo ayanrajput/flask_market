@@ -29,6 +29,21 @@ p{
 .row{
   margin: 0;
 }
+.col-4,.col-md-12{
+  padding: 0.2rem;
+}
+.col-8{
+  padding-left: .5rem;
+  padding-right: .5rem;
+  margin-top: .4rem;
+
+}
+.col-md-12{
+  margin-right: .3rem;
+}
+.card{
+  margin: 0;
+}
 .modal-content {
   background: url("../images/Large-Triangles.svg");
   color: var(--color-secondary);

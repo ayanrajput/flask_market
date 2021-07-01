@@ -47,8 +47,30 @@ Flask Market
   </div>
   <div class="col-4">
     <h3>Owned Items</h3>
-    <p>Click on the sell item to sell it</p>
-    <br>
+    <p>Click on the sell item to sell item</p>
+
+    <div class="row">
+      {% for owned_item in owned_items %}
+      {% include "includes/owned_items_modals.html" %}
+      <div class="col-md-12">
+
+
+        <div style="margin-bottom: 5px" class="card text-center bg-dark border border-primary">
+          <div class="card-body">
+            <h5 class="card-title">{{ owned_item.name }}</h5>
+
+            <button type="button" class="btn btn-outline-danger" style="margin-bottom: 5px" data-toggle="modal" data-target="#Modal-SellingConfirm-{{ owned_item.id }}">
+              Sell
+            </button>
+            <p class="card-text"><strong>
+                This item costs {{ owned_item.prettier_price }}
+              </strong></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
   </div>
 </div>
 
